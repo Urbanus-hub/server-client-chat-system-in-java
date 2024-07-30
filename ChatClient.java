@@ -12,9 +12,9 @@ public class ChatClient {
         String serverAddress = args[0];
         int port = Integer.parseInt(args[1]);
 
-        try (Socket socket = new Socket(serverAddress, port);
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        try (Socket socket = new Socket(serverAddress, port);// creates a socket to connect to the specified server address and port
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);// creates a printwriter to send output to the server
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));//to read input from the server
              BufferedReader consoleIn = new BufferedReader(new InputStreamReader(System.in))) {
 
             // Prompt the user to enter a nickname
@@ -42,6 +42,5 @@ public class ChatClient {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
+        }    }
 }
